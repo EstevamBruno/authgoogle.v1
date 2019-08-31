@@ -1,0 +1,32 @@
+<main class="container mt-5" align="center">
+    <h2 *ngIf="!user" class="mb-5">
+        Faça login e veja a surpresa que reservei especialmente para você.
+    </h2>
+    <div class="row">
+        <div class="col-md-3" *ngIf="user">
+            <img src="{{ user.photoUrl }}">
+            <div>
+                <h4>Bem-vindo, {{ user.name }}</h4>
+                <p>{{ user.email }}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-danger btn-block" (click)="signInWithGoogle()" *ngIf="!user">
+                <i class="fa fa-google mr-2"></i>
+                Iniciar com Google
+            </button>
+            <button class="btn btn-primary btn-block" (click)="signOut()" *ngIf="user">
+                <i class="fa fa-sign-out mr-2"></i>
+                Encerrar Sessão
+            </button>
+        </div>
+    </div>
+    <div *ngIf="user">
+        <h4 align="center">Vamos lá, {{ user.name }}, aperte o play *--*</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/X7xidfngiyU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</main>
+
+
